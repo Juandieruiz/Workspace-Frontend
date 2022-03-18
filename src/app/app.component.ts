@@ -10,6 +10,11 @@ import { AppService } from './services/app.service';
 export class AppComponent implements OnInit {
   title = 'workspacefrontend';
   tareas: any[] = [];
+  tarea = {
+    id: null,
+    nombre: '',
+    completado: false
+  }
 
   constructor(
     private _appService: AppService
@@ -17,10 +22,28 @@ export class AppComponent implements OnInit {
   ){}
 
   ngOnInit(): void {
-      this._appService.getAll()
+      this.getAll();
+  }
+
+  getAll(){
+    this._appService.getAll()
         .subscribe((data: any) =>{
           this.tareas = data
         });
+  }
+
+  save(){
+    this._appService.create(this.tarea)
+        .subscribe(() => this.getAll()); // Cargar nuevamente las tareas
+        this.tarea = {
+          id: null,
+          nombre: '',
+          completado: false
+        }
+  }
+
+  edit(tarea:any){
+    this.tarea = tarea;
   }
 
 }

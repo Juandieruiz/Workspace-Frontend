@@ -33,17 +33,17 @@
 
     <div class="col-md-6">
 
-        <h3>Nueva Tarea</h3>
+        <h3>{{tarea.id ? 'Editar' : 'Nueva'}} Tarea</h3>
 
-        <form class="mt-5">
+        <form class="mt-5" (ngSubmit)="save()">
 
             <div class="mb-3 form-floating">
-                <input id="nombre" type="text" placeholder="Nombre" name="nombre" class="form-control">
+                <input id="nombre" type="text" placeholder="Nombre" name="nombre" class="form-control" [(ngModel)]="tarea.nombre">
                 <label for="nombre">Nombre</label>
             </div>
 
             <div class="mb-3 form-check">
-                <input id="completado" type="checkbox" class="form-check-input" name="completado">
+                <input id="completado" type="checkbox" class="form-check-input" name="completado" [(ngModel)]="tarea.completado">
                 <label for="completado" class="form-check-label">Completado</label>
             </div>
 

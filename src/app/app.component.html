@@ -11,8 +11,8 @@
             <div class="fw-bold"> {{ tarea.nombre }} </div>
 
             <div class="text-muted">
-                <i class="fa fa-edit cursor-pointer" title="Editar tarea"></i>
-                <i class="fa fa-trash ms-2 cursor-pointer" title="Eliminar tarea"></i>
+                <i class="fa fa-edit cursor-pointer" title="Editar tarea" (click)="edit(tarea);"></i>
+                <i class="fa fa-trash ms-2 cursor-pointer" title="Eliminar tarea" (click)="delete(tarea)"></i>
             </div>
         </div>
 

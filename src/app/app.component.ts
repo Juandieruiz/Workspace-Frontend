@@ -32,9 +32,15 @@ export class AppComponent implements OnInit {
         });
   }
 
-  save(){
-    this._appService.create(this.tarea)
-        .subscribe(() => this.getAll()); // Cargar nuevamente las tareas
+  save() {
+    if (this.tarea.id) { // Si esta creada, encontrara el id y llamamos la update
+      this._appService.update(this.tarea.id, this.tarea)
+        .subscribe(() => this.getAll());
+    }else{ // Si no esta creada, crearemos la nueva tarea
+      this._appService.create(this.tarea)
+        .subscribe(() => this.getAll());
+    }
+     // Cargar nuevamente las tareas
         this.tarea = {
           id: null,
           nombre: '',
@@ -43,7 +49,13 @@ export class AppComponent implements OnInit {
   }
 
   edit(tarea:any){
-    this.tarea = tarea;
+    this.tarea = {
+      ...tarea
+    };
   }
 
+  delete(tarea:any) {
+    this._appService.delete(tarea.id)
+      .subscribe(() => this.getAll());
+  }
 }

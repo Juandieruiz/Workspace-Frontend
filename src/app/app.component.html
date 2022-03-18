@@ -1,5 +1,26 @@
 <div class="container py-5">
-    <div class="row">
+
+    <div class="rounded shadow p-5 d-flex">
+        <img src="/assets/pic.jpg" alt="juandieruiz" width="200">
+
+        <div>
+            <h3 class="text-primary"> Bienvenidos a WorkSpace </h3>
+            <h5 class="text-secondary">
+                Con esta aplicación podrás consultar, crear, actualizar y eliminar tus tareas.
+            </h5>
+            <h5 class="text-secondary">
+                Tecnologías usadas con Spring Boot, Angular y MongoDB.
+            </h5>
+
+            <hr>
+
+            <p class="text-muted">
+                Esta aplicación ha sido creada por Juan Diego Gómez
+            </p>
+        </div>
+    </div>
+
+    <div class="row mt-5">
         <div class="col-md-6">
             <h3>Lista de Tareas:</h3>
 
@@ -23,7 +44,7 @@
 
                 <ng-template #noCompletado>
                     <small class="text-muted">
-                        <i class="fa fa-clock"></i>Pendiente
+                        <i class="fa fa-clock"></i> Pendiente
                     </small>
                 </ng-template>
             </div>

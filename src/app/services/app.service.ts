@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 // import { Tarea } from '../model/tarea';
 
-const API_BASE = 'http://localhost:8080';
+const API_BASE = 'https://workspace-juandieruiz.herokuapp.com';
 
 @Injectable({
   providedIn: 'root'

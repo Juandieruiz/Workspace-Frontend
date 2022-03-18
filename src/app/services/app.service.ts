@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 // HttpClient 
 import { HttpClient } from '@angular/common/http';
-import { Tarea } from '../model/tarea';
+// import { Tarea } from '../model/tarea';
 
 const API_BASE = 'http://localhost:8080';
 
@@ -20,14 +20,16 @@ export class AppService {
   }
 
   // AGREGAR TAREA
-  create(tarea : Tarea){
+  create(tarea : any){
     return this._http.post(`${API_BASE}/tareas`, tarea);
   }
 
-  update(id : string, tarea : Tarea){
+  // ACTUALIZAR TAREA
+  update(id : string, tarea : any){
     return this._http.put(`${API_BASE}/tareas/${id}`, tarea)
   }
 
+  // BORRAR TAREA
   delete(id: string){
     return this._http.delete(`${API_BASE}/tareas/${id}`)
   }
